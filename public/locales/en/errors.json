@@ -1,0 +1,18 @@
+{
+  "product": {
+    "empty": {
+      "title": "Oops. Looks like it's still empty here",
+      "description": "Our entire team is working hard to fill this category."
+    }
+  },
+  "site": {
+    "notFound": {
+      "title": "Page not found",
+      "description": "You haven't broken the Internet, but we can't find what you're looking for."
+    },
+    "serverError": {
+      "title": "Oops. Something went wrong",
+      "description": "If you have any problems contact the service center, please contact us"
+    }
+  }
+}

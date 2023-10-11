@@ -1,0 +1,82 @@
+@import "~styles/variables";
+
+.catalog {
+  display: grid;
+  grid-template-columns: calc((100vw - 1300px) / 2) auto;
+  grid-template-areas:
+    ". header"
+    ". inner";
+  align-content: start;
+  row-gap: 8px;
+  padding-right: 24px;
+
+  border-radius: 0px;
+
+  overflow-y: auto;
+}
+
+.catalog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: header;
+
+  padding: 25px 0;
+}
+
+.catalog__link {
+  cursor: pointer;
+}
+
+.catalog__header__button {
+  padding: 0;
+
+  color: $icon-icon-secondary;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.catalog__inner {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: stretch;
+  grid-area: inner;
+
+  padding: 24px 0;
+}
+
+.catalog__list {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  & + & {
+    margin-left: 24px;
+    padding-left: 24px;
+
+    border-left: 1px solid $stroke-stroke-gray-secondary;
+  }
+}
+
+.catalog__item {
+  & + & {
+    margin-top: 8px;
+  }
+}
+
+.catalog__item__link {
+  text-decoration: none;
+}
+
+.catalog__item__card {
+  width: 330px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .catalog {
+    grid-template-columns: 70px auto;
+  }
+}

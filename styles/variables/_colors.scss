@@ -1,0 +1,83 @@
+// Background
+$background-white: rgba(255, 255, 255, 1);
+$background-gray: rgba(248, 248, 250, 1);
+$background-gray-alpha: rgba(0, 0, 0, 0.05);
+$background-contrast-gray-alpha: rgba(255, 255, 255, 0.05);
+$background-gray-secondary: rgba(243, 244, 246, 1);
+$background-gray-secondary-alpha: rgba(0, 0, 0, 0.1);
+$background-contrast-gray-secondary-alpha: rgba(255, 255, 255, 0.1);
+$background-gray-tertiary: rgba(209, 213, 219, 1);
+$background-gray-tertiary-alpha: rgba(0, 0, 0, 0.16);
+$background-contrast-gray-tertiary-alpha: rgba(255, 255, 255, 0.16);
+$background-disabled: rgba(156, 163, 175, 1);
+$background-accent-primary: rgba(35, 170, 73, 1);
+$background-accent-secondary: rgba(237, 248, 240, 1);
+$background-negative-primary: rgba(239, 68, 68, 1);
+$background-negative-secondary: rgba(254, 226, 226, 1);
+$background-positive-primary: rgba(34, 197, 94, 1);
+$background-positive-secondary: rgba(220, 252, 231, 1);
+$background-warning-primary: rgba(245, 158, 11, 1);
+$background-warning-secondary: rgba(254, 243, 199, 1);
+
+// Text
+$text-text-primary: rgba(0, 3, 26, 1);
+$text-text-secondary: rgba(107, 114, 128, 1);
+$text-text-tertiary: rgba(166, 173, 185, 1);
+$text-text-contrast: rgba(255, 255, 255, 1);
+$text-text-accent: rgba(35, 170, 73, 1);
+$text-text-link-default: rgba(59, 130, 246, 1);
+$text-text-link-visited: rgba(29, 78, 216, 1);
+$text-text-negative: rgba(239, 68, 68, 1);
+$text-text-positive: rgba(34, 197, 94, 1);
+$text-text-warning: rgba(245, 158, 11, 1);
+$text-text-primary-alpha: rgba(15, 23, 42, 0.7);
+$text-text-secondary-alpha: rgba(15, 23, 42, 0.6);
+$text-text-tertiary-alpha: rgba(15, 23, 82, 0.4);
+$text-text-contrast-primary-alpha: rgba(255, 255, 255, 0.7);
+$text-text-contrast-secondary-alpha: rgba(255, 255, 255, 0.6);
+$text-text-contrast-tertiary-alpha: rgba(255, 255, 255, 0.5);
+
+// Icon
+$icon-icon-primary: rgba(0, 3, 26, 1);
+$icon-icon-secondary: rgba(156, 163, 175, 1);
+$icon-icon-tertiary: rgba(209, 213, 219, 1);
+$icon-icon-accent: rgba(35, 170, 73, 1);
+$icon-icon-negative: rgba(239, 68, 68, 1);
+$icon-icon-positive: rgba(34, 197, 94, 1);
+$icon-icon-warning: rgba(245, 158, 11, 1);
+$icon-icon-contrast: rgba(255, 255, 255, 1);
+$icon-icon-primary-alpha: rgba(15, 23, 42, 0.7);
+$icon-icon-secondary-alpha: rgba(15, 23, 42, 0.6);
+$icon-icon-tertiary-alpha: rgba(15, 23, 42, 0.5);
+$icon-icon-contrast-primary-alpha: rgba(255, 255, 255, 0.7);
+$icon-icon-contrast-secondary-alpha: rgba(255, 255, 255, 0.6);
+$icon-icon-contrast-tertiary-alpha: rgba(255, 255, 255, 0.5);
+
+// Stroke
+$stroke-stroke-accent: rgba(35, 170, 73, 1);
+$stroke-stroke-negative: rgba(239, 68, 68, 1);
+$stroke-stroke-positive: rgba(34, 197, 94, 1);
+$stroke-stroke-warning: rgba(245, 158, 11, 1);
+$stroke-stroke-gray-primary: rgba(235, 236, 241, 1);
+$stroke-stroke-gray-primary-alpha: rgba(0, 0, 0, 0.05);
+$stroke-stroke-gray-secondary: rgba(226, 232, 240, 1);
+$stroke-stroke-gray-secondary-alpha: rgba(0, 0, 0, 0.1);
+$stroke-stroke-contrast: rgba(255, 255, 255, 1);
+$stroke-stroke-contrast-alpha: rgba(255, 255, 255, 0.12);
+
+// State
+$state-background: rgba(217, 217, 217, 1);
+$state-background-accent-hover: rgba(55, 190, 93, 1);
+$state-background-accent-active: rgba(21, 156, 59, 1);
+$state-background-positive-hover: rgba(67, 215, 121, 1);
+$state-background-positive-active: rgba(22, 163, 74, 1);
+$state-background-negative-hover: rgba(248, 113, 113, 1);
+$state-background-negative-active: rgba(220, 38, 38, 1);
+$state-background-gray-hover: rgba(239, 240, 241, 1);
+$state-background-gray-active: rgba(237, 239, 243, 1);
+$state-background-gray-alpha-hover: rgba(0, 0, 0, 0.02);
+$state-background-gray-alpha-active: rgba(0, 0, 0, 0.08);
+$state-secondary-hover: rgba(249, 250, 251, 1);
+
+// Modal
+$light-background-background-modal: rgba(255, 255, 255, 1);

@@ -1,0 +1,165 @@
+@import "~styles/variables";
+
+.label {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  height: 48px;
+
+  padding: 12px;
+
+  background-color: $background-white;
+  box-shadow: inset 0 0 0 1.5px $stroke-stroke-gray-secondary;
+  border-radius: 12px;
+
+  cursor: text;
+
+  &--icon {
+    padding-left: 10px !important;
+  }
+
+  &--focus {
+    box-shadow: inset 0 0 0 1.5px $stroke-stroke-accent;
+  }
+
+  &--value {
+    .input__placeholder {
+      display: none;
+    }
+  }
+
+  &--visible {
+    position: relative;
+
+    .label__inner {
+      height: 48px;
+    }
+
+    .input {
+      position: absolute;
+      left: 0;
+      bottom: 4.5px;
+
+      &__placeholder {
+        position: absolute;
+
+        display: block;
+      }
+    }
+  }
+}
+
+.label.label--focus {
+  .label__icon {
+    color: $icon-icon-accent !important;
+  }
+}
+
+.label--visible.label--focus {
+  .label__icon {
+    color: $icon-icon-accent !important;
+  }
+
+  .input__placeholder {
+    top: 4.5px;
+    transform: translateY(0);
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+    color: $text-text-secondary;
+  }
+}
+
+.label--value {
+  .label__icon {
+    color: $icon-icon-accent !important;
+  }
+
+  .input__placeholder {
+    top: 4.5px;
+    bottom: unset;
+    transform: unset;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+    color: $text-text-secondary;
+  }
+}
+
+.label__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+
+  color: $icon-icon-secondary;
+}
+
+.label__inner {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.input {
+  width: 100%;
+  padding: 0;
+
+  font-size: 16px;
+  line-height: 140%;
+  color: $text-text-primary;
+
+  border: none;
+  background-color: transparent;
+  outline: none;
+  caret-color: $stroke-stroke-accent;
+}
+
+.input__placeholder {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  font-size: 16px;
+  line-height: 140%;
+  color: $text-text-tertiary;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  pointer-events: none;
+  user-select: none;
+
+  transition: font-size 0.2s ease, top 0.2s ease, transform 0.2s ease, color 0.2s ease;
+
+  &__icon {
+    color: $text-text-negative !important;
+  }
+}
+
+.input__required {
+  color: $text-text-negative !important;
+}
+
+.error {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  transform: translateY(100%);
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 140%;
+  color: $text-text-negative;
+}

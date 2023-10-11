@@ -1,0 +1,32 @@
+@import "~styles/variables";
+
+.footer {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1300px) auto;
+  grid-template-areas: ". inner .";
+  gap: 0 70px;
+
+  padding: 32px 0;
+
+  border-top: 1px solid $stroke-stroke-gray-secondary;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  grid-area: inner;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  text-decoration: none;
+  color: $text-text-accent;
+}

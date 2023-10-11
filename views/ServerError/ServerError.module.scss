@@ -1,0 +1,44 @@
+@import "~styles/variables";
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+
+  text-align: center;
+}
+
+.view__icon {
+  margin-bottom: 32px;
+}
+
+.view__title {
+  margin-bottom: 16px;
+}
+
+.view__description {
+  max-width: 675px;
+  margin: 0;
+  margin-bottom: 32px;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 130%;
+
+  a {
+    font-weight: 600;
+    color: $text-text-accent;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.view__button {
+  padding-right: 24px;
+  padding-left: 24px;
+}

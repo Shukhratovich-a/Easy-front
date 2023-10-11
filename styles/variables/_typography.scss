@@ -1,0 +1,54 @@
+// Headings
+@mixin heading {
+  margin: 0;
+
+  color: inherit;
+}
+
+@mixin h1-bold {
+  @include heading;
+
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+@mixin h1-medium {
+  @include heading;
+
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+@mixin h2-bold {
+  @include heading;
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+@mixin h2-medium {
+  @include heading;
+
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+@mixin h3-bold {
+  @include heading;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+@mixin h3-medium {
+  @include heading;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 110%;
+}

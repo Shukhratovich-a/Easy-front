@@ -1,0 +1,40 @@
+@import "~styles/variables";
+
+.view {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas:
+    "top top"
+    "menu list";
+  gap: 48px 30px;
+
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.view__top {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  grid-area: top;
+}
+
+.view__top__count {
+  padding: 2px 8px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%;
+  color: $text-text-secondary;
+
+  border-radius: 6px;
+  background: var(--background-gray, #f8f8fa);
+}
+
+.view__menu {
+  grid-area: menu;
+}
+
+.view__list {
+  grid-area: list;
+}

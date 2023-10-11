@@ -1,0 +1,46 @@
+@import "~styles/variables";
+
+.header {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1300px) auto;
+  grid-template-areas: ". inner .";
+  gap: 70px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid $stroke-stroke-gray-primary;
+}
+
+.header__inner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 14px 131px 1fr 270px auto auto;
+  grid-template-areas: "logo . catalog search location cart language";
+  gap: 8px;
+  grid-area: inner;
+  height: 50px;
+}
+
+.header__logo {
+  grid-area: logo;
+}
+
+.header__catalog {
+  grid-area: catalog;
+}
+
+.header__search {
+  grid-area: search;
+}
+
+.header__location {
+  grid-area: location;
+}
+
+.header__cart {
+  grid-area: cart;
+}
+
+.header__language {
+  grid-area: language;
+}

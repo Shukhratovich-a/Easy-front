@@ -1,0 +1,50 @@
+@import "~styles/variables";
+
+.counter {
+  position: relative;
+
+  display: block;
+  width: 170px;
+
+  overflow: hidden;
+
+  background-color: $background-gray;
+  border-radius: 8px;
+}
+
+.counter__input {
+  position: relative;
+  padding: 12px;
+
+  width: 100%;
+
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  color: $text-text-primary;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.counter__button {
+  position: absolute;
+  z-index: 1;
+
+  padding: 12px;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &--minus {
+    left: 0;
+  }
+
+  &--plus {
+    right: 0;
+  }
+}
