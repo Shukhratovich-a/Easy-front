@@ -1,22 +1,22 @@
 import React from "react";
 
-import { CategoryInterface } from "@interfaces/category.interface";
+import { ICategory } from "@interfaces/category.interface";
 
 export interface IAppContext {
-  categories: CategoryInterface[];
-  setCategories?: (newCategories: CategoryInterface[]) => void;
+  categories: ICategory[];
+  setCategories?: (newCategories: ICategory[]) => void;
 }
 
 export const AppContext = React.createContext<IAppContext>({ categories: [] });
 
 export const AppProvider = ({ categories, children }: React.PropsWithChildren<IAppContext>) => {
-  const [categoriesState, setCategoriesState] = React.useState<CategoryInterface[]>(categories);
+  const [categoriesState, setCategoriesState] = React.useState<ICategory[]>(categories);
 
   React.useEffect(() => {
     setCategoriesState(categories);
   }, [categories]);
 
-  const setCategories = (categories: CategoryInterface[]) => {
+  const setCategories = (categories: ICategory[]) => {
     setCategoriesState(categories);
   };
 

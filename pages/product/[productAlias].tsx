@@ -3,13 +3,15 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ParsedUrlQuery } from "querystring";
 
-import { withLayout } from "@layout/Layout";
+import { ICategory } from "@interfaces/category.interface";
+import { IProduct } from "@interfaces/product.interface";
+
+import { LanguageEnum } from "@helpers/language.helper";
 
 import { getCategories } from "@api/category";
 import { getProductByAlias, getProducts } from "@api/products";
 
-import { CategoryInterface } from "@interfaces/category.interface";
-import { ProductInterface } from "@interfaces/product.interface";
+import { withLayout } from "@layout/Layout";
 
 import { ProductView } from "@views";
 
@@ -29,7 +31,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
   let paths: string[] = [];
 
   for (let locale of locales as string[]) {
-    const { data: products } = await getProducts(locale);
+    const {
+      data: { data: products },
+    } = await getProducts((locale as LanguageEnum) || LanguageEnum.RU);
 
     paths = paths.concat(products.flatMap((product) => `/${locale}/product/${product.alias}`));
   }
@@ -52,21 +56,31 @@ export const getStaticProps: GetStaticProps<ProductProps> = async ({
 
   const { productAlias } = params;
 
-  const { data: product } = await getProductByAlias(locale as string, { alias: productAlias as string });
-  const { data: categories } = await getCategories(locale as string);
+  try {
+    const {
+      data: { data: product },
+    } = await getProductByAlias((locale as LanguageEnum) || LanguageEnum.RU, { alias: productAlias as string });
+    const {
+      data: { data: categories },
+    } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale || "ru")),
-      categories,
-      product,
-    },
-  };
+    return {
+      props: {
+        ...(await serverSideTranslations(locale || LanguageEnum.RU)),
+        categories,
+        product,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default withLayout(Product);
 
 export interface ProductProps extends Record<string, unknown> {
-  categories: CategoryInterface[];
-  product: ProductInterface;
+  categories: ICategory[];
+  product: IProduct;
 }

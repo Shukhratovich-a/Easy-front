@@ -1,27 +1,31 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
 import { CatalogContext } from "@contexts/catalog.context";
 
+import { useMediaQuery } from "@hooks/useMediaQuery.hook";
+
 import { HeaderProps } from "./Header.props";
 
-import { Button, SearchBar, Language } from "@components";
+import { Button, IconButton, SearchBar, Language } from "@components";
 
 import Logo from "@icons/logo.svg";
 import Catalog from "@icons/catalog.svg";
 import Location from "@icons/location.svg";
 import Cart from "@icons/cart.svg";
+import Search from "@icons/search.svg";
 
 import styles from "./Header.module.scss";
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
-  const { push, pathname, query } = useRouter();
-  const { t, i18n } = useTranslation("header");
+  const { t } = useTranslation("header");
+  const isTablet = useMediaQuery("(max-width: 768px)");
 
-  const { isOpen, setIsOpen } = React.useContext(CatalogContext);
+  console.log(isTablet);
+
+  const { setIsOpen } = React.useContext(CatalogContext);
 
   const handleOpenCatalog = () => {
     if (!setIsOpen) return;
@@ -32,10 +36,13 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   return (
     <header className={cn(styles.header, className)} {...props}>
       <div className={cn(styles.header__inner)}>
-        <Link className={cn(styles.header__logo)} href={"/"} shallow={true}>
+        {/* {isTablet && <IconButton className={cn(styles.header__catalog)} icon={<Catalog />} />} */}
+
+        <Link className={cn(styles.header__logo)} href={"/"} shallow>
           <Logo />
         </Link>
 
+        {/* {!isTablet && ( */}
         <Button
           className={cn(styles.header__catalog)}
           size="large"
@@ -46,8 +53,13 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         >
           {t("catalog")}
         </Button>
+        {/* )} */}
 
+        {/* {!isTablet &&  */}
         <SearchBar className={cn(styles.header__search)} />
+        {/* } */}
+
+        {/* {isTablet && <IconButton className={cn(styles.header__search)} icon={<Search />} />} */}
 
         <Button
           className={cn(styles.header__location)}

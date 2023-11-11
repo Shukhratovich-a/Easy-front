@@ -27,12 +27,16 @@ export const ProductCard = ({ className, product, ...props }: ProductCardProps):
       </div>
 
       <div className={cn(styles.product__info)}>
-        <mark className={cn(styles["product__full-price"])}>{formatNumberWithSpaces(product.fullPrice)} sum</mark>
+        <mark className={cn(styles["product__full-price"])}>
+          {!!product.purchasePrice && `${formatNumberWithSpaces(product.fullPrice)} sum`}
+        </mark>
         <mark className={cn(styles["product__purchase-price"])}>
-          {formatNumberWithSpaces(product.purchasePrice)} sum
+          {!!product.purchasePrice
+            ? `${formatNumberWithSpaces(product.purchasePrice)} sum`
+            : `${formatNumberWithSpaces(product.fullPrice)} sum`}
         </mark>
 
-        <HTag className={cn(styles.product__title)} tag="h4">
+        <HTag className={cn(styles.product__title)} tag="h4" title={product.title}>
           {product.title}
         </HTag>
 

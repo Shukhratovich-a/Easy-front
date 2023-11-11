@@ -2,7 +2,9 @@ import { GetStaticProps, GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ParsedUrlQuery } from "querystring";
 
-import { CategoryInterface } from "@interfaces/category.interface";
+import { ICategory } from "@interfaces/category.interface";
+
+import { LanguageEnum } from "@helpers/language.helper";
 
 import { getCategories } from "@api/category";
 
@@ -17,18 +19,26 @@ const NotFound = () => {
 export const getStaticProps: GetStaticProps<NotFoundProps> = async ({
   locale,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
-  const { data: categories } = await getCategories(locale || "ru");
+  try {
+    const {
+      data: { data: categories },
+    } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale || "ru")),
-      categories,
-    },
-  };
+    return {
+      props: {
+        ...(await serverSideTranslations(locale || LanguageEnum.RU)),
+        categories,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default withLayout(NotFound);
 
 export interface NotFoundProps extends Record<string, unknown> {
-  categories: CategoryInterface[];
+  categories: ICategory[];
 }

@@ -1,9 +1,9 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-import { CategoryInterface } from "@interfaces/category.interface";
-import { SubcategoryInterface } from "@interfaces/subcategory.interface";
+import { ICategory } from "@interfaces/category.interface";
+import { ISubcategory } from "@interfaces/subcategory.interface";
 
 export interface CategoryProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  category: CategoryInterface;
-  subcategory: SubcategoryInterface;
+  category: ICategory;
+  subcategory: ISubcategory;
 }

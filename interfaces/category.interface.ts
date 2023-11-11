@@ -1,6 +1,6 @@
-import { SubcategoryInterface } from "./subcategory.interface";
+import { ISubcategory } from "./subcategory.interface";
 
-export interface CategoryInterface {
+export interface ICategory {
   getProducts: any;
   id: number;
   uuid: string;
@@ -9,7 +9,7 @@ export interface CategoryInterface {
   title: string;
   alias: string;
   productsTotal: number;
-  subcategories: SubcategoryInterface[];
+  subcategories: ISubcategory[];
   createAt: Date;
   updateAt: Date;
 }

@@ -5,6 +5,7 @@
 .products__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-content: stretch;
   gap: 24px 8px;
 
   margin: 0;
@@ -17,6 +18,13 @@
 }
 
 .product__link {
+  display: block;
+  height: 100%;
+
   text-decoration: none;
   color: inherit;
+}
+
+.product__card {
+  height: 100%;
 }

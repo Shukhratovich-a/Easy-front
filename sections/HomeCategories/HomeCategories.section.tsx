@@ -1,34 +1,39 @@
+import React from "react";
 import cn from "classnames";
 
-import { CategoryInterface } from "@interfaces/category.interface";
-import { SubcategoryInterface } from "@interfaces/subcategory.interface";
+import { ICategory } from "@interfaces/category.interface";
+import { ISubcategory } from "@interfaces/subcategory.interface";
 
 import { HomeCategoriesProps } from "./HomeCategories.props";
 
-import { CategoryCard, HTag } from "@components";
+import { Button, CategoryCard, HTag } from "@components";
 
 import styles from "./HomeCategories.module.scss";
 
 export const HomeCategories = ({ className, categories }: HomeCategoriesProps): JSX.Element => {
-  const renderCategories = (categories: CategoryInterface[]) => {
+  const renderCategories = (categories: ICategory[]) => {
     return (
       <ul className={cn(styles.categories, className)}>
-        {categories.map((category) =>
-          category.subcategories.length ? (
-            <li className={cn(styles.category)} key={category.id}>
-              <HTag className={cn(styles.category__title)} tag="h2" appearance="h3">
-                {category.title}
-              </HTag>
+        {categories.map((category) => {
+          const subcategories = [...category.subcategories].slice(0, 5);
 
-              {renderSubcategories(category.subcategories, category.alias)}
+          return category.subcategories.length ? (
+            <li className={cn(styles.category)} key={category.id}>
+              <div className={cn(styles.category__top)}>
+                <HTag className={cn(styles.category__title)} tag="h2" appearance="h3">
+                  {category.title}
+                </HTag>
+              </div>
+
+              {renderSubcategories(subcategories, category.alias)}
             </li>
-          ) : null
-        )}
+          ) : null;
+        })}
       </ul>
     );
   };
 
-  const renderSubcategories = (subcategories: SubcategoryInterface[], categoryAlias: string) => {
+  const renderSubcategories = (subcategories: ISubcategory[], categoryAlias: string) => {
     return (
       <ul className={cn(styles.subcategories, styles[`subcategories--${subcategories.length}`])}>
         {subcategories.map((subcategory) => (
@@ -40,5 +45,15 @@ export const HomeCategories = ({ className, categories }: HomeCategoriesProps): 
     );
   };
 
-  return renderCategories(categories);
+  return (
+    <>
+      {renderCategories(categories)}
+
+      <div className={cn(styles.categories__bottom)}>
+        <Button className={cn(styles.categories__bottom__button)} size="large" appearance="neutral">
+          Нет того, что ищу
+        </Button>
+      </div>
+    </>
+  );
 };

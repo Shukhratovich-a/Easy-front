@@ -1,6 +1,7 @@
 export * from "./HTag/HTag.component";
 
 export * from "./Button/Button.component";
+export * from "./IconButton/IconButton.component";
 export * from "./Counter/Counter.component";
 export * from "./Language/Language.component";
 
@@ -8,7 +9,7 @@ export * from "./Input/Input.component";
 
 export * from "./Modal/Modal.component";
 
-export * from "./SearchBar/Searchbar.component";
+export * from "./SearchBar/SearchBar.component";
 
 export * from "./CatalogCard/CatalogCard.component";
 export * from "./CategoryCard/CategoryCard.component";

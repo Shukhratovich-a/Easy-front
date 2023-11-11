@@ -1,9 +1,10 @@
-import { Suspense } from "react";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ParsedUrlQuery } from "querystring";
 
-import { CategoryInterface } from "@interfaces/category.interface";
+import { ICategory } from "@interfaces/category.interface";
+
+import { LanguageEnum } from "@helpers/language.helper";
 
 import { getCategories } from "@api/category";
 
@@ -18,18 +19,26 @@ const Home = ({ categories }: HomeProps): JSX.Element => {
 export const getServerSideProps: GetServerSideProps<HomeProps> = async ({
   locale,
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
-  const { data: categories } = await getCategories(locale || "ru");
+  try {
+    const {
+      data: { data: categories },
+    } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale || "ru")),
-      categories,
-    },
-  };
+    return {
+      props: {
+        ...(await serverSideTranslations(locale || LanguageEnum.RU)),
+        categories: categories,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default withLayout(Home);
 
 export interface HomeProps extends Record<string, unknown> {
-  categories: CategoryInterface[];
+  categories: ICategory[];
 }

@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
-import { CategoryInterface } from "@interfaces/category.interface";
+import { ICategory } from "@interfaces/category.interface";
 
 import { AppContext } from "@contexts/app.context";
 import { CatalogContext } from "@contexts/catalog.context";
@@ -20,7 +20,7 @@ export const Catalog = () => {
   const { isOpen, setIsOpen } = React.useContext(CatalogContext);
   const { categories } = React.useContext(AppContext);
 
-  const [currentCategory, setCurrentCategory] = React.useState<CategoryInterface>(categories[0]);
+  const [currentCategory, setCurrentCategory] = React.useState<ICategory>(categories[0]);
   const { i18n } = useTranslation();
   const { query } = useRouter();
 
@@ -34,7 +34,7 @@ export const Catalog = () => {
     setCurrentCategory(categories.find((category) => category.alias === query.categoryAlias) || categories[0]);
   }, [isOpen, categories, query]);
 
-  const handleClick = (category: CategoryInterface) => {
+  const handleClick = (category: ICategory) => {
     setCurrentCategory(category);
   };
 
@@ -65,23 +65,25 @@ export const Catalog = () => {
             )}
         </ul>
 
-        <ul className={cn(styles.catalog__list)}>
-          {currentCategory.subcategories.map((subcategory) => (
-            <li className={cn(styles.catalog__item)} key={subcategory.id}>
-              <Link
-                className={cn(styles.catalog__item__link)}
-                href={{ pathname: `/category/${currentCategory.alias}/${subcategory.alias}` }}
-                hrefLang={i18n.language}
-              >
-                <CatalogCard
-                  className={cn(styles.catalog__item__card)}
-                  category={subcategory}
-                  isActive={query.subcategoryAlias === subcategory.alias}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {currentCategory && (
+          <ul className={cn(styles.catalog__list)}>
+            {currentCategory.subcategories.map((subcategory) => (
+              <li className={cn(styles.catalog__item)} key={subcategory.id}>
+                <Link
+                  className={cn(styles.catalog__item__link)}
+                  href={{ pathname: `/category/${currentCategory.alias}/${subcategory.alias}` }}
+                  hrefLang={i18n.language}
+                >
+                  <CatalogCard
+                    className={cn(styles.catalog__item__card)}
+                    category={subcategory}
+                    isActive={query.subcategoryAlias === subcategory.alias}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </Modal>
   );

@@ -44,9 +44,7 @@
 
   margin: 0;
 
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 110%;
+  @include title2-semibold;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -57,9 +55,7 @@
 .card__count {
   grid-area: count;
 
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 140%;
+  @include footnote-medium;
 
   color: $text-text-tertiary;
 

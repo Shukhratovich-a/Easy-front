@@ -1,6 +1,8 @@
 @import "~styles/variables";
 
 .product {
+  display: flex;
+  flex-direction: column;
   padding: 12px;
 
   border-radius: 20px;
@@ -10,6 +12,7 @@
 .product__image {
   width: 212px;
   margin-bottom: 12px;
+  grid-area: image;
   overflow: hidden;
 
   background-color: rgba(239, 239, 239, 1);
@@ -22,10 +25,26 @@
   }
 }
 
+.product__info {
+  display: grid;
+  flex-grow: 1;
+
+  grid-template-rows: auto 2px auto 4px auto 4px 1fr auto;
+  grid-template-areas:
+    "full"
+    "."
+    "purchase"
+    "."
+    "title"
+    "."
+    "volume"
+    "button";
+}
+
 .product__full-price {
   display: block;
   height: 18px;
-  margin-bottom: 2px;
+  grid-area: full;
 
   font-size: 13px;
   line-height: 140%;
@@ -38,7 +57,7 @@
 .product__purchase-price {
   display: block;
   height: 25px;
-  margin-bottom: 4px;
+  grid-area: purchase;
 
   font-size: 18px;
   font-weight: 500;
@@ -49,16 +68,23 @@
 }
 
 .product__title {
-  margin-bottom: 4px;
+  display: -webkit-box;
+  max-height: 42px;
+  overflow: hidden;
+  grid-area: title;
 
   font-size: 15px;
   font-weight: 500;
   line-height: 140%;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .product__volume {
   display: block;
   margin-bottom: 12px;
+  grid-area: volume;
 
   font-size: 14px;
   font-weight: 500;
@@ -69,4 +95,5 @@
 .product__button {
   display: block;
   width: 100%;
+  grid-area: button;
 }

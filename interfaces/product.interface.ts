@@ -1,4 +1,4 @@
-export interface ProductInterface {
+export interface IProduct {
   id: number;
   uuid: string;
   totalAmount: number;
@@ -9,12 +9,12 @@ export interface ProductInterface {
   alias: string;
   description: string;
   volume: string;
-  images: ProductImageInterface[];
+  images: IProductImage[];
   createAt: Date;
   updateAt: Date;
 }
 
-export interface ProductImageInterface {
+export interface IProductImage {
   id: number;
   jpgPath: string;
   webpPath: string;

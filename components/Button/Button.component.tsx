@@ -1,3 +1,4 @@
+import React from "react";
 import cn from "classnames";
 
 import { ButtonProps } from "./Button.props";
@@ -21,7 +22,7 @@ export const Button = ({
     >
       {iconSide === "left" && icon}
 
-      <span className={cn(styles[`button__inner`], styles[`button--${size}__inner`])}>{children}</span>
+      {children && <span className={cn(styles[`button__inner`], styles[`button--${size}__inner`])}>{children}</span>}
 
       {iconSide === "right" && icon}
     </button>

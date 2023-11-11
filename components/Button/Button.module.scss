@@ -72,16 +72,16 @@
 
   &--regular {
     &--primary {
-      background-color: $background-accent-primary;
+      background-color: $background-accent-primary !important;
 
-      color: $text-text-contrast;
+      color: $text-text-contrast !important;
 
       &:hover {
-        background-color: $state-background-accent-hover;
+        background-color: $state-background-accent-hover !important;
       }
 
       &:active {
-        background-color: $state-background-accent-active;
+        background-color: $state-background-accent-active !important;
       }
 
       &:disabled {
@@ -90,16 +90,16 @@
     }
 
     &--secondary {
-      background-color: $background-accent-secondary;
+      background-color: $background-accent-secondary !important;
 
-      color: $text-text-accent;
+      color: $text-text-accent !important;
 
       &:hover {
-        color: $state-background-accent-hover;
+        color: $state-background-accent-hover !important;
       }
 
       &:active {
-        color: $state-background-accent-active;
+        color: $state-background-accent-active !important;
       }
 
       &:disabled {
@@ -108,16 +108,16 @@
     }
 
     &--tertiary {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-accent;
+      color: $text-text-accent !important;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -126,18 +126,18 @@
     }
 
     &--outlined {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-accent;
+      color: $text-text-accent !important;
 
       box-shadow: inset 0 0 0 1.5px $stroke-stroke-accent;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -148,16 +148,16 @@
 
   &--positive {
     &--primary {
-      background-color: $background-positive-primary;
+      background-color: $background-positive-primary !important;
 
-      color: $text-text-contrast;
+      color: $text-text-contrast !important;
 
       &:hover {
-        background-color: $state-background-positive-hover;
+        background-color: $state-background-positive-hover !important;
       }
 
       &:active {
-        background-color: $state-background-positive-active;
+        background-color: $state-background-positive-active !important;
       }
 
       &:disabled {
@@ -166,16 +166,16 @@
     }
 
     &--secondary {
-      background-color: $background-positive-secondary;
+      background-color: $background-positive-secondary !important;
 
-      color: $text-text-positive;
+      color: $text-text-positive !important;
 
       &:hover {
-        color: $state-background-positive-hover;
+        color: $state-background-positive-hover !important;
       }
 
       &:active {
-        color: $state-background-positive-active;
+        color: $state-background-positive-active !important;
       }
 
       &:disabled {
@@ -184,16 +184,16 @@
     }
 
     &--tertiary {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-positive;
+      color: $text-text-positive !important;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -202,18 +202,18 @@
     }
 
     &--outlined {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-accent;
+      color: $text-text-accent !important;
 
       box-shadow: inset 0 0 0 1.5px $stroke-stroke-positive;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -224,16 +224,16 @@
 
   &--negative {
     &--primary {
-      background-color: $background-negative-primary;
+      background-color: $background-negative-primary !important;
 
-      color: $text-text-contrast;
+      color: $text-text-contrast !important;
 
       &:hover {
-        background-color: $state-background-negative-hover;
+        background-color: $state-background-negative-hover !important;
       }
 
       &:active {
-        background-color: $state-background-negative-active;
+        background-color: $state-background-negative-active !important;
       }
 
       &:disabled {
@@ -242,16 +242,16 @@
     }
 
     &--secondary {
-      background-color: $background-negative-secondary;
+      background-color: $background-negative-secondary !important;
 
-      color: $text-text-negative;
+      color: $text-text-negative !important;
 
       &:hover {
-        color: $state-background-negative-hover;
+        color: $state-background-negative-hover !important;
       }
 
       &:active {
-        color: $state-background-negative-active;
+        color: $state-background-negative-active !important;
       }
 
       &:disabled {
@@ -260,16 +260,16 @@
     }
 
     &--tertiary {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-negative;
+      color: $text-text-negative !important;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -278,18 +278,18 @@
     }
 
     &--outlined {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-negative;
+      color: $text-text-negative !important;
 
       box-shadow: inset 0 0 0 1.5px $stroke-stroke-negative;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -300,16 +300,16 @@
 
   &--neutral {
     &--primary {
-      background-color: $background-gray;
+      background-color: $background-gray !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -318,16 +318,16 @@
     }
 
     &--secondary {
-      background-color: $background-gray;
+      background-color: $background-gray !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -336,16 +336,16 @@
     }
 
     &--tertiary {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       &:hover {
-        color: $state-background-accent-hover;
+        color: $state-background-accent-hover !important;
       }
 
       &:active {
-        color: $state-background-accent-active;
+        color: $state-background-accent-active !important;
       }
 
       &:disabled {
@@ -354,18 +354,18 @@
     }
 
     &--outlined {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       box-shadow: inset 0 0 0 1.5px $stroke-stroke-gray-secondary;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -376,16 +376,16 @@
 
   &--contrast {
     &--primary {
-      background-color: $background-white;
+      background-color: $background-white !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       &:hover {
-        background-color: rgba($color: $background-white, $alpha: 0.9);
+        background-color: rgba($color: $background-white, $alpha: 0.9) !important;
       }
 
       &:active {
-        background-color: $background-gray-tertiary;
+        background-color: $background-gray-tertiary !important;
       }
 
       &:disabled {
@@ -394,16 +394,16 @@
     }
 
     &--secondary {
-      background-color: $background-gray;
+      background-color: $background-gray !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {
@@ -412,16 +412,16 @@
     }
 
     &--tertiary {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       &:hover {
-        color: $state-background-accent-hover;
+        color: $state-background-accent-hover !important;
       }
 
       &:active {
-        color: $state-background-accent-active;
+        color: $state-background-accent-active !important;
       }
 
       &:disabled {
@@ -430,18 +430,18 @@
     }
 
     &--outlined {
-      background-color: transparent;
+      background-color: transparent !important;
 
-      color: $text-text-primary;
+      color: $text-text-primary !important;
 
       box-shadow: inset 0 0 0 1.5px $stroke-stroke-gray-secondary;
 
       &:hover {
-        background-color: $state-secondary-hover;
+        background-color: $state-secondary-hover !important;
       }
 
       &:active {
-        background-color: $state-background-gray-active;
+        background-color: $state-background-gray-active !important;
       }
 
       &:disabled {

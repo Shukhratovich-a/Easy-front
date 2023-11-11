@@ -8,7 +8,7 @@ import { LayoutProps } from "./Layout.props";
 
 import { Header } from "./Header/Header.component";
 import { Footer } from "./Footer/Footer.component";
-import { Catalog } from "./Catalog/Catalog.component";
+// import { Catalog } from "./Catalog/Catalog.component";
 // import { Map } from "./Map/Map.component";
 
 import styles from "./Layout.module.scss";
@@ -16,7 +16,7 @@ import styles from "./Layout.module.scss";
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <div className={cn(styles.layout)}>
-      <Catalog />
+      {/* <Catalog /> */}
       {/* <Map /> */}
 
       <Header className={styles.header} />

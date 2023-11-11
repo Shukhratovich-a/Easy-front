@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
+import { LanguageEnum } from "@helpers/language.helper";
+
 import { getCategoryAlias } from "@api/category";
 import { getSubcategoryAlias } from "@api/subcategory";
 import { getProductAlias } from "@api/products";
@@ -19,24 +21,30 @@ export const Language = ({ className, ...props }: LanguageProps) => {
   const { i18n } = useTranslation();
   const { push, pathname, query } = useRouter();
 
-  const changeLanguage = async (language: "en" | "ru") => {
+  const changeLanguage = async (language: LanguageEnum) => {
     if (query.categoryAlias) {
       const {
-        data: { alias },
+        data: {
+          data: { alias },
+        },
       } = await getCategoryAlias(language, { alias: query.categoryAlias as string });
 
       query.categoryAlias = alias;
     }
     if (query.subcategoryAlias) {
       const {
-        data: { alias },
+        data: {
+          data: { alias },
+        },
       } = await getSubcategoryAlias(language, { alias: query.subcategoryAlias as string });
 
       query.subcategoryAlias = alias;
     }
     if (query.productAlias) {
       const {
-        data: { alias },
+        data: {
+          data: { alias },
+        },
       } = await getProductAlias(language, { alias: query.productAlias as string });
 
       query.productAlias = alias;
@@ -56,7 +64,7 @@ export const Language = ({ className, ...props }: LanguageProps) => {
         mode="secondary"
         iconSide="right"
         icon={<Marker />}
-        onClick={() => changeLanguage(i18n.language === "en" ? "ru" : "en")}
+        onClick={() => changeLanguage(i18n.language === LanguageEnum.EN ? LanguageEnum.RU : LanguageEnum.EN)}
       >
         {i18n.language}
       </Button>

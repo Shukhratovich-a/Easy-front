@@ -1,6 +1,6 @@
-import { ProductInterface } from "./product.interface";
+import { IProduct } from "./product.interface";
 
-export interface SubcategoryInterface {
+export interface ISubcategory {
   id: number;
   uuid: string;
   icon: string;
@@ -8,7 +8,7 @@ export interface SubcategoryInterface {
   title: string;
   alias: string;
   productsTotal: number;
-  products: ProductInterface[];
+  products: IProduct[];
   createAt: Date;
   updateAt: Date;
 }

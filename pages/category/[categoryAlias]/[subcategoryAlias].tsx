@@ -3,16 +3,17 @@ import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ParsedUrlQuery } from "querystring";
 
-import { withLayout } from "@layout/Layout";
+import { ICategory } from "@interfaces/category.interface";
+import { ISubcategory } from "@interfaces/subcategory.interface";
+
+import { LanguageEnum } from "@helpers/language.helper";
 
 import { getCategories, getCategoryByAlias } from "@api/category";
 import { getSubcategoryByAlias } from "@api/subcategory";
 
-import { CategoryInterface } from "@interfaces/category.interface";
-import { SubcategoryInterface } from "@interfaces/subcategory.interface";
+import { withLayout } from "@layout/Layout";
 
 import { CategoryView } from "@views";
-import { Suspense } from "react";
 
 const Category = ({ currentCategory, currentSubcategory }: CategoryProps): JSX.Element => {
   return (
@@ -30,7 +31,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }: GetStaticPaths
   let paths: string[] = [];
 
   for (let locale of locales as string[]) {
-    const { data: categories } = await getCategories(locale);
+    const {
+      data: { data: categories },
+    } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
 
     paths = paths.concat(
       categories.flatMap((category) =>
@@ -56,26 +59,40 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async ({
   }
   const { categoryAlias, subcategoryAlias } = params;
 
-  const { data: categories } = await getCategories(locale as string);
-  const { data: currentCategory } = await getCategoryByAlias(locale || "ru", { alias: categoryAlias as string });
-  const { data: currentSubcategory } = await getSubcategoryByAlias(locale || "ru", {
-    alias: subcategoryAlias as string,
-  });
+  try {
+    const {
+      data: { data: categories },
+    } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
+    const {
+      data: { data: currentCategory },
+    } = await getCategoryByAlias((locale as LanguageEnum) || LanguageEnum.RU, {
+      alias: categoryAlias as string,
+    });
+    const {
+      data: { data: currentSubcategory },
+    } = await getSubcategoryByAlias((locale as LanguageEnum) || LanguageEnum.RU, {
+      alias: subcategoryAlias as string,
+    });
 
-  return {
-    props: {
-      ...(await serverSideTranslations(locale || "ru")),
-      categories,
-      currentCategory,
-      currentSubcategory,
-    },
-  };
+    return {
+      props: {
+        ...(await serverSideTranslations(locale || LanguageEnum.RU)),
+        categories,
+        currentCategory,
+        currentSubcategory,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default withLayout(Category);
 
 export interface CategoryProps extends Record<string, unknown> {
-  categories: CategoryInterface[];
-  currentCategory: CategoryInterface;
-  currentSubcategory: SubcategoryInterface;
+  categories: ICategory[];
+  currentCategory: ICategory;
+  currentSubcategory: ISubcategory;
 }

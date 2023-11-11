@@ -10,6 +10,8 @@
 .product__images {
   display: grid;
   grid-template-columns: 110px 485px;
+  grid-template-rows: repeat(4, 120px);
+
   grid-template-areas:
     "secondary primary"
     "tertiary primary"
@@ -108,4 +110,28 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+}
+
+.product__amount {
+  margin-bottom: 32px;
+}
+
+.product__amount__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  font-size: 17px;
+  line-height: 110%;
+  color: $text-text-accent;
+}
+
+.product__amount__text {
+  display: inline-block;
+  margin-bottom: 15px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 140%;
+  color: $text-text-secondary;
 }

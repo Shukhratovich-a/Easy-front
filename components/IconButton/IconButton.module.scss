@@ -1,0 +1,27 @@
+@import "~styles/variables";
+
+.button {
+  box-sizing: border-box;
+
+  width: 44px;
+  height: 44px;
+  padding: 5px;
+  margin: -10px;
+
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+
+  color: inherit;
+
+  cursor: pointer;
+
+  &--primary {
+    color: $icon-icon-accent;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

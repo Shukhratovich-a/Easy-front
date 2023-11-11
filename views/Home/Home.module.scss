@@ -3,3 +3,9 @@
 .view {
   padding: 40px 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .view {
+    padding: 16px 0;
+  }
+}
