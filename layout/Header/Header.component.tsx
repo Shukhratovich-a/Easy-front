@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
-import { CatalogContext } from "@contexts/catalog.context";
-
 import { useMediaQuery } from "@hooks/useMediaQuery.hook";
+
+import { CatalogContext } from "@contexts/catalog.context";
 
 import { HeaderProps } from "./Header.props";
 
-import { Button, IconButton, SearchBar, Language } from "@components";
+import { Button, SearchBar, Language, IconButton } from "@components";
 
 import Logo from "@icons/logo.svg";
 import Catalog from "@icons/catalog.svg";
@@ -19,11 +19,10 @@ import Search from "@icons/search.svg";
 
 import styles from "./Header.module.scss";
 
-export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
+const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   const { t } = useTranslation("header");
-  const isTablet = useMediaQuery("(max-width: 768px)");
-
-  console.log(isTablet);
+  const isTablet = useMediaQuery("(max-width: 900px)");
+  const isSmallDesktop = useMediaQuery("(max-width: 1200px)");
 
   const { setIsOpen } = React.useContext(CatalogContext);
 
@@ -36,47 +35,59 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   return (
     <header className={cn(styles.header, className)} {...props}>
       <div className={cn(styles.header__inner)}>
-        {/* {isTablet && <IconButton className={cn(styles.header__catalog)} icon={<Catalog />} />} */}
+        {isTablet && <IconButton className={cn(styles.header__catalog)} icon={<Catalog />} />}
 
         <Link className={cn(styles.header__logo)} href={"/"} shallow>
-          <Logo />
+          <Logo className={cn(styles.header__logo__icon)} />
         </Link>
 
-        {/* {!isTablet && ( */}
-        <Button
-          className={cn(styles.header__catalog)}
-          size="large"
-          appearance="regular"
-          mode="secondary"
-          icon={<Catalog />}
-          onClick={handleOpenCatalog}
-        >
-          {t("catalog")}
-        </Button>
-        {/* )} */}
+        {isTablet && (
+          <IconButton className={cn(styles.header__search, styles["header__search--mobile"])} icon={<Search />} />
+        )}
 
-        {/* {!isTablet &&  */}
-        <SearchBar className={cn(styles.header__search)} />
-        {/* } */}
+        {!isTablet && (
+          <Button
+            className={cn(styles.header__catalog)}
+            size={"large"}
+            appearance="regular"
+            mode="secondary"
+            icon={<Catalog />}
+            onClick={handleOpenCatalog}
+          >
+            {!isSmallDesktop ? t("catalog") : null}
+          </Button>
+        )}
 
-        {/* {isTablet && <IconButton className={cn(styles.header__search)} icon={<Search />} />} */}
+        {!isTablet && <SearchBar className={cn(styles.header__search)} />}
 
-        <Button
-          className={cn(styles.header__location)}
-          size="large"
-          appearance="regular"
-          mode="primary"
-          icon={<Location />}
-        >
-          {t("address")}
-        </Button>
+        {!isTablet && (
+          <Button
+            className={cn(styles.header__location)}
+            size={"large"}
+            appearance="regular"
+            mode="primary"
+            icon={<Location />}
+          >
+            {!isSmallDesktop ? t("address") : null}
+          </Button>
+        )}
 
-        <Button className={cn(styles.header__cart)} size="large" appearance="neutral" mode="primary" icon={<Cart />}>
-          {t("basket")}
-        </Button>
+        {!isTablet && (
+          <Button
+            className={cn(styles.header__cart)}
+            size={"large"}
+            appearance="neutral"
+            mode="primary"
+            icon={<Cart />}
+          >
+            {!isSmallDesktop ? t("basket") : null}
+          </Button>
+        )}
 
-        <Language className={cn(styles.header__language)} />
+        {!isTablet && <Language className={cn(styles.header__language)} size={"large"} />}
       </div>
     </header>
   );
 };
+
+export default Header;

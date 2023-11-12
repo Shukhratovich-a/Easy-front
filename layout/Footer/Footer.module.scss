@@ -22,6 +22,11 @@
 
 .footer__logo {
   grid-area: logo;
+
+  svg {
+    width: 170px;
+    height: 50px;
+  }
 }
 
 .footer__socials {

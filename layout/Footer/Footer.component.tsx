@@ -14,7 +14,7 @@ import Instagram from "@icons/instagram.svg";
 
 import styles from "./Footer.module.scss";
 
-export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
+const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
   const isMobile = useMediaQuery("(max-width: 600px)");
 
   return (
@@ -43,3 +43,5 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
     </footer>
   );
 };
+
+export default Footer;

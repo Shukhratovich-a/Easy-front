@@ -41,7 +41,7 @@ export const Catalog = () => {
   return (
     <Modal className={cn(styles.catalog)} animation="swap" isOpen={isOpen} handleClose={handleClose}>
       <div className={cn(styles.catalog__header)}>
-        <Logo className={cn(styles.catalog__link)} onClick={handleClose} />
+        <Logo className={cn(styles.catalog__logo)} onClick={handleClose} />
 
         <button className={cn(styles.catalog__header__button)} onClick={handleClose}>
           <Close />

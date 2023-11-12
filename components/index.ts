@@ -18,3 +18,5 @@ export * from "./ProductCard/ProductCard.component";
 export * from "./CategoryMenu/CategoryMenu.component";
 
 export * from "./ProductsEmpty/ProductsEmpty.component";
+
+export * from "./HeaderLoading/HeaderLoading.component";

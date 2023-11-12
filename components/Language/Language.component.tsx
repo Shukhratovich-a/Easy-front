@@ -17,7 +17,7 @@ import Marker from "@icons/language-marker.svg";
 
 import styles from "./Language.module.scss";
 
-export const Language = ({ className, ...props }: LanguageProps) => {
+export const Language = ({ className, size = "large", ...props }: LanguageProps) => {
   const { i18n } = useTranslation();
   const { push, pathname, query } = useRouter();
 
@@ -59,7 +59,7 @@ export const Language = ({ className, ...props }: LanguageProps) => {
     <div className={cn(styles.language, className)} {...props}>
       <Button
         className={cn(styles.language__button)}
-        size="large"
+        size={size}
         appearance="regular"
         mode="secondary"
         iconSide="right"

@@ -17,7 +17,39 @@
   cursor: pointer;
 
   &--primary {
-    color: $icon-icon-accent;
+    background-color: transparent !important;
+
+    color: $icon-icon-accent !important;
+
+    &:hover {
+      background-color: $state-secondary-hover !important;
+    }
+
+    &:active {
+      background-color: $state-background-gray-active !important;
+    }
+
+    &:disabled {
+      opacity: 0.64;
+    }
+  }
+
+  &--contrast {
+    background-color: transparent !important;
+
+    color: $icon-icon-primary !important;
+
+    &:hover {
+      color: $state-background-accent-hover !important;
+    }
+
+    &:active {
+      color: $state-background-accent-active !important;
+    }
+
+    &:disabled {
+      opacity: 0.64;
+    }
   }
 
   svg {

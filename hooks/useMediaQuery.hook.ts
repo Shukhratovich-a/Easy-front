@@ -1,23 +1,39 @@
 import React from "react";
 
 export const useMediaQuery = (query: string): boolean => {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const getMatches = (query: string): boolean => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia(query).matches;
+    }
+    return false;
+  };
+
+  const [matches, setMatches] = React.useState<boolean>(getMatches(query));
+
+  function handleChange() {
+    setMatches(getMatches(query));
+  }
 
   React.useEffect(() => {
-    const mediaQuery = window.matchMedia(query);
+    const matchMedia = window.matchMedia(query);
 
-    setIsMobile(mediaQuery.matches);
+    handleChange();
 
-    const handleResize = () => {
-      setIsMobile(mediaQuery.matches);
-    };
-
-    mediaQuery.addListener(handleResize);
+    if (matchMedia.addListener) {
+      matchMedia.addListener(handleChange);
+    } else {
+      matchMedia.addEventListener("change", handleChange);
+    }
 
     return () => {
-      mediaQuery.removeListener(handleResize);
+      if (matchMedia.removeListener) {
+        matchMedia.removeListener(handleChange);
+      } else {
+        matchMedia.removeEventListener("change", handleChange);
+      }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  return isMobile;
+  return matches;
 };
