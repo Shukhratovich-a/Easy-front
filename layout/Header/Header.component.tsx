@@ -35,7 +35,9 @@ const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   return (
     <header className={cn(styles.header, className)} {...props}>
       <div className={cn(styles.header__inner)}>
-        {isTablet && <IconButton className={cn(styles.header__catalog)} icon={<Catalog />} />}
+        {isTablet && (
+          <IconButton className={cn(styles.header__catalog)} icon={<Catalog />} onClick={handleOpenCatalog} />
+        )}
 
         <Link className={cn(styles.header__logo)} href={"/"} shallow>
           <Logo className={cn(styles.header__logo__icon)} />
