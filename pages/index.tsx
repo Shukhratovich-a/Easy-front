@@ -19,22 +19,15 @@ const Home = ({ categories }: HomeProps): JSX.Element => {
 export const getServerSideProps: GetServerSideProps<HomeProps> = async ({
   locale,
 }: GetServerSidePropsContext<ParsedUrlQuery>) => {
-  try {
-    const {
-      data: { data: categories },
-    } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
+  const {
+    data: { data: categories },
+  } = await getCategories((locale as LanguageEnum) || LanguageEnum.RU);
 
-    return {
-      props: {
-        ...(await serverSideTranslations(locale || LanguageEnum.RU)),
-        categories: categories,
-      },
-    };
-  } catch {
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: {
+      categories: categories,
+    },
+  };
 };
 
 export default withLayout(Home);
